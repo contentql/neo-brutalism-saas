@@ -1,3 +1,4 @@
+import tailwindTypography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 import tailwindAnimate from 'tailwindcss-animate'
 
@@ -17,17 +18,17 @@ const config: Config = {
         main: '#A3E636',
         mainAccent: '#88cc19', // not needed for shadcn components
         overlay: 'rgba(0,0,0,0.8)', // background color overlay for alert dialogs, modals, etc.
-  
+
         // light mode
         bg: '#E0E7F1',
         text: '#000',
         border: '#000',
-  
+
         // dark mode
         darkBg: '#2c312b',
         darkText: '#eeefe9',
         darkBorder: '#000',
-        secondaryBlack: '#212121', // opposite of plain white, not used pitch black because borders and box-shadows are that color 
+        secondaryBlack: '#212121', // opposite of plain white, not used pitch black because borders and box-shadows are that color
       },
       borderRadius: {
         base: '5px',
@@ -74,9 +75,27 @@ const config: Config = {
         w900: { raw: '(max-width: 900px)' },
         w500: { raw: '(max-width: 500px)' },
       },
+      typography: (theme: (arg0: string) => any) => ({
+        lightMode: {
+          css: {
+            '--tw-prose-kbd': theme('colors.text'),
+            '--tw-prose-quote-borders': theme('colors.text'),
+            '--tw-prose-bullets': theme('colors.text'),
+            '--tw-prose-code': theme('colors.text'),
+          },
+        },
+        darkMode: {
+          css: {
+            '--tw-prose-kbd': theme('colors.darkText'),
+            '--tw-prose-quote-borders': theme('colors.darkText'),
+            '--tw-prose-bullets': theme('colors.darkText'),
+            '--tw-prose-code': theme('colors.darkText'),
+          },
+        },
+      }),
     },
   },
-  plugins: [tailwindAnimate],
+  plugins: [tailwindAnimate, tailwindTypography],
   darkMode: 'class',
 }
 export default config
