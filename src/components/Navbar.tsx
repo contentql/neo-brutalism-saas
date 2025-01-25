@@ -6,8 +6,8 @@ import { ThemeSwitcher } from '@/components/theme-switcher'
 
 const Navbar = () => {
   return (
-    <header className='fixed left-0 top-4 z-[999] w-full'>
-      <div className='container mx-auto flex w-full justify-between rounded-md border-2 border-border bg-bg px-5 py-3 dark:bg-darkBg'>
+    <header className='fixed left-0 top-0 z-[999] w-full border-2 border-b-border bg-bg px-5 py-3 dark:bg-darkBg '>
+      <div className='container mx-auto flex w-full justify-between'>
         <Link href='/'>
           <Image
             src='/logo.svg'
